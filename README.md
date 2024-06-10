@@ -4,7 +4,7 @@ Using classification to predict if the bank client will subscribe a term deposit
 The data pertains to direct marketing campaigns (phone calls) conducted by a Portuguese banking institution.
 
 # Documents
-Notebook: https://github.com/jenncamacho/
+Notebook: https://github.com/jenncamacho/PA3_bank_marketing/blob/main/prompt_III_PREP.ipynb
 bank-additional-full.csv with all examples (41188) and 20 inputs
 
 ## Business Understanding 
