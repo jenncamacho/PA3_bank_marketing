@@ -5,7 +5,6 @@ The data pertains to direct marketing campaigns (phone calls) conducted by a Por
 
 # Documents
 Notebook: https://github.com/jenncamacho/
-Presentation: https://docs.google.com/
 bank-additional-full.csv with all examples (41188) and 20 inputs
 
 ## Business Understanding 
@@ -49,10 +48,21 @@ Explored the unique values, counts, and null values for all features
 
 ## Histogram showing distribution of numeric features
 ![image](https://github.com/jenncamacho/PA3_bank_marketing/assets/161406309/c40ef5c5-56cc-4846-91a2-fa82aeea07cf)
+## Pairplot
 
+![image](https://github.com/jenncamacho/PA3_bank_marketing/assets/161406309/62693a29-eebd-4437-9bcc-99d7f76791dc)
 
 # List of columns to drop
 columns_to_drop = ['duration', 'default', 'day_of_week', 'pdays']
+
+## Plot shows that the dataset needs to be scaled:
+
+![image](https://github.com/jenncamacho/PA3_bank_marketing/assets/161406309/3bfd6252-c41a-40b7-84b3-9e5b45d65a22)
+
+## This plot shows that the dataset has been successfully scaled:
+
+![image](https://github.com/jenncamacho/PA3_bank_marketing/assets/161406309/b785a444-4116-423f-9c3e-c55c44d03ecc)
+
 
 ## Data Processing and Modeling
 <pre>
@@ -62,10 +72,13 @@ Instructions: Please run the notebook in sequence
 <<Notebook link>>
 </pre>
 
+### Train/Test Split
+With your data prepared, split it into a train and test set.
 The goal was to develop the best model to predict whether a client will subscribe a term deposit by: 
 
-⦁	Applying various classification methods to the business problem
-⦁	Comparing the results of k-nearest neighbors, logistic regression, decision trees, and support vector machines
+- Building a Baseline Model before building the first model
+- Applying various classification methods to the business problem
+- Comparing the results of k-nearest neighbors, logistic regression, decision trees, and support vector machines
 
 | Model              | Train Time (s) | Train Accuracy | Test Accuracy | Train Precision | Test Precision | Train Recall | Test Recall |
 |--------------------|----------------|----------------|---------------|----------------|---------------|--------------|-------------|
@@ -85,6 +98,8 @@ The goal was to develop the best model to predict whether a client will subscrib
 - previous
 - emp.var.rate
 - cons.price.idx
+
+#### The best model based on accuracy of the test dataset is Logistic Regression with an accuracy of 87.3%
 - cons.conf.idx
 - euribor3m
 - nr.employed
