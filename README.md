@@ -9,31 +9,50 @@ Presentation: https://docs.google.com/
 bank-additional-full.csv with all examples (41188) and 20 inputs
 
 ## Business Understanding 
- The objective is to develop the best model to classify whether a client will subscribe to a term deposit (variable y). Through this exploration, key features used to generate the models will be identified and bank marketing teams can develop a more effective campaign. 
+ The objective is to develop the best model to classify whether a client will subscribe to a term deposit (variable y). Through this exploration, key features used to generate the models will be identified and bank marketing teams can develop a more effective campaign. The goal is to increase efficiency of directed campaigns for long-term deposit subscriptions by reducing the number of contacts to do. 
 
 By understanding the best features and attributes to generate the best models, the bank's marketing team can divert their attention and resources to leverage these features to increase the number of subscriptions for term deposits.
 
 ## Data Understanding
-From an original dataset containing information on 3 million used cars the dataset I’m working with has 426,880 rows with 18 columns or features that are numeric, categorical, and unstructured objects.
-### Data Understanding and Features Related to the Business
 
-- The dataset is unbalanced, with only 6557 records (12.38%) indicating successful outcomes.
+- ### Summary and Insights of the Dataset for Predicting Term Deposit Subscriptions
+
+This dataset pertains to direct marketing campaigns conducted by a Portuguese banking institution, where the primary mode of outreach was through phone calls. The goal is to accurately predict whether a bank client will subscribe to a term deposit based on the provided data.
+
+#### Dataset Overview
+
+There are four distinct datasets available, data modeling is conducted on the following dataset:
+
+1. **bank-additional-full.csv**: Contains 41,188 examples with 20 input features, ordered chronologically from May 2008 to November 2010. 
+
+#### Data Collection and Characteristics
+
+- **Time Frame**: The data spans from May 2008 to June 2013, encompassing a total of 52,944 phone contacts.
+- **Imbalance**: The dataset is notably unbalanced, with only 6,557 (12.38%) instances of successful term deposit subscriptions.
+- **Training and Test Split**: For evaluation, a time-ordered split is used:
+  - **Training Data**: Consists of contacts up to June 2012, totaling 51,651 examples. This data is used for feature and model selection.
+  - **Test Data**: Comprises the most recent 1,293 contacts from July 2012 to June 2013, used to measure the prediction capabilities of the model.
+
+#### Target Variable
+
+- **Output Variable**: `y` - Indicates whether the client subscribed to a term deposit (binary: "yes", "no").
+
+By utilizing this dataset, the aim is to develop a machine learning model that can accurately predict whether a client will subscribe to a term deposit, aiding the bank in targeting their marketing efforts more effectively. The detailed feature set and extensive historical data provide a solid foundation for building robust predictive models.
+
 ## Data Preparation and Visulalization
-<pre>
-Code Used: Python
-Packages: Pandas, plotly, matplotlib, seaborn
-</pre>
 
 Explored the unique values, counts, and null values for all features
-- All NaN values in the 'condition' column have been replaced with 'good'  (170, 204)
-- Count of 'salvage' values in 'condition' column: 225 - I will remove these rows
-- Alot of values are missing in “drive” and does not account for all-wheel-drive and have two values for 4wd and fwd.  Since it is missing 130k values I will remove this column
--Transmission.  78.5% are automatic.  0.62 % is Nan values.  This column does not appear to provide distinguishable insights that would determine price. 
-- Paint_color is missing 126,383.  I attempted to replace null values with car paint colors that tends to be price-neutral, such as white, black, silver, and gray are typically good choices. Since there is still high demensionality in the dataset and color does not significantly drive a high price, this column was removed. 
-- Size is missing 72% and Cylinders is missing 42% of the vales.  Remove the Cylinder column.  Keep Size and remove missing rows.
-- These tactics of dealing with Nan values is comparable to replacing with a mean value. 
-- Filter rows where 'title_status' column contains 'clean' then removed the column since all values in the column are the same: 'clean'
-- Rows with missing price, many rows with unbelievable car prices either too high (above $150,000 or too low, under $4,000)
+
+- removal of irrelevant features. 
+- remove "unknown" values (these are the equivelant to NaN values)
+- removing duplicate values (rows)
+
+## Histogram showing distribution of numeric features
+![image](https://github.com/jenncamacho/PA3_bank_marketing/assets/161406309/c40ef5c5-56cc-4846-91a2-fa82aeea07cf)
+
+
+# List of columns to drop
+columns_to_drop = ['duration', 'default', 'day_of_week', 'pdays']
 
 ## Data Processing and Modeling
 <pre>
@@ -45,22 +64,37 @@ Instructions: Please run the notebook in sequence
 
 The goal was to develop the best model to predict whether a client will subscribe a term deposit by: 
 
-⦁	Applying various classification methods to a business problem
+⦁	Applying various classification methods to the business problem
 ⦁	Comparing the results of k-nearest neighbors, logistic regression, decision trees, and support vector machines
-⦁	Developing a problem statement that includes a research question, expected data sources and structure, expected results, and expected techniques
+
+| Model              | Train Time (s) | Train Accuracy | Test Accuracy | Train Precision | Test Precision | Train Recall | Test Recall |
+|--------------------|----------------|----------------|---------------|----------------|---------------|--------------|-------------|
+| LogisticRegression | 0.398813       | 0.871146       | 0.873367      | 0.727586       | 0.714596      | 0.562705     | 0.556600    |
+| KNearestNeighbors  | 0.028972       | 0.892789       | 0.869883      | 0.794366       | 0.697347      | 0.674464     | 0.618765    |
+| SVC                | 3.387884       | 0.866269       | 0.870580      | 0.433134       | 0.435290      | 0.500000     | 0.500000    |
+| DecisionTree       | 0.047040       | 0.952447       | 0.848284      | 0.962203       | 0.642278      | 0.829642     | 0.611516    |
+
 
 
 ### Next steps and recommendations
 
-####The bank should consider the following features which provide the greatest impact to the best model
+#### The bank should consider the following numeric features which provide the greatest impact to the best model:
 
-- feature 1 
-- feature 2
+- age
+- campaign
+- previous
+- emp.var.rate
+- cons.price.idx
+- cons.conf.idx
+- euribor3m
+- nr.employed
 
 
 
 
 ## License
-This project is open source.
 
+This dataset is licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.
+This allows for the sharing and adaptation of the datasets for any purpose, provided that the appropriate credit is given.
+This project is open source.
 
