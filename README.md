@@ -2,6 +2,7 @@
 
 # Documents
 Notebook: https://github.com/jenncamacho/PA3_bank_marketing/blob/main/prompt_III_PREP.ipynb
+
 bank-additional-full.csv with all examples (41188) and 20 inputs
 
 ## Business Understanding 
@@ -22,7 +23,7 @@ Using classification to predict if the bank client will subscribe a term deposit
 There are four distinct datasets available, data modeling is conducted on the following dataset:
 The data pertains to direct marketing campaigns (phone calls) conducted by a Portuguese banking institution.
 
-1. **bank-additional-full.csv**: Contains 41,188 examples with 20 input features, ordered chronologically from May 2008 to November 2010. 
+- **bank-additional-full.csv**: Contains 41,188 examples with 20 input features, ordered chronologically from May 2008 to November 2010. 
 
 #### Data Collection and Characteristics
 
@@ -55,7 +56,7 @@ Explored the unique values, counts, and null values for all features
 # List of columns to drop
 columns_to_drop = ['duration', 'default', 'day_of_week', 'pdays']
 
-## Plot shows that the dataset needs to be scaled:
+## The Plot demonstrates that the dataset needs to be scaled:
 
 ![image](https://github.com/jenncamacho/PA3_bank_marketing/assets/161406309/3bfd6252-c41a-40b7-84b3-9e5b45d65a22)
 
@@ -80,16 +81,8 @@ The goal was to develop the best model to predict whether a client will subscrib
 - Applying various classification methods to the business problem
 - Comparing the results of k-nearest neighbors, logistic regression, decision trees, and support vector machines
 
-| Model              | Train Time (s) | Train Accuracy | Test Accuracy | Train Precision | Test Precision | Train Recall | Test Recall |
-|--------------------|----------------|----------------|---------------|----------------|---------------|--------------|-------------|
-| LogisticRegression | 0.398813       | 0.871146       | 0.873367      | 0.727586       | 0.714596      | 0.562705     | 0.556600    |
-| KNearestNeighbors  | 0.028972       | 0.892789       | 0.869883      | 0.794366       | 0.697347      | 0.674464     | 0.618765    |
-| SVC                | 3.387884       | 0.866269       | 0.870580      | 0.433134       | 0.435290      | 0.500000     | 0.500000    |
-| DecisionTree       | 0.047040       | 0.952447       | 0.848284      | 0.962203       | 0.642278      | 0.829642     | 0.611516    |
 
-
-
-### Next steps and recommendations
+### Recommendations
 
 #### The bank should consider the following numeric features which provide the greatest impact to the best model and target marketing campaign strategies based on these features:
 
@@ -103,6 +96,14 @@ The goal was to develop the best model to predict whether a client will subscrib
 - nr.employed
 
 #### The best model based on accuracy of the test dataset is Logistic Regression with an accuracy of 87.3%
+
+
+| Model              | Train Time (s) | Train Accuracy | Test Accuracy | Train Precision | Test Precision | Train Recall | Test Recall |
+|--------------------|----------------|----------------|---------------|----------------|---------------|--------------|-------------|
+| LogisticRegression | 0.398813       | 0.871146       | 0.873367      | 0.727586       | 0.714596      | 0.562705     | 0.556600    |
+| KNearestNeighbors  | 0.028972       | 0.892789       | 0.869883      | 0.794366       | 0.697347      | 0.674464     | 0.618765    |
+| SVC                | 3.387884       | 0.866269       | 0.870580      | 0.433134       | 0.435290      | 0.500000     | 0.500000    |
+| DecisionTree       | 0.047040       | 0.952447       | 0.848284      | 0.962203       | 0.642278      | 0.829642     | 0.611516    |
 
 ### Model Performance
 Logistic Regression has the highest test accuracy (0.873367) and a balanced precision (0.714596) and recall (0.556600). It performs consistently well on both the training and test sets, indicating a good generalization. K-Nearest Neighbors also shows high test accuracy (0.869883) and relatively balanced precision (0.697347) and recall (0.618765). It has the fastest training time, which might be an advantage if training speed is crucial. SVC has similar test accuracy (0.870580) to Logistic Regression and KNN but shows significantly lower precision and recall. This suggests that while it can separate the classes well, it might not be as reliable for imbalanced classes or more nuanced predictions. Decision Tree has the highest train accuracy (0.952447) but lower test accuracy (0.848284), indicating overfitting. Although it has high precision (0.642278) and recall (0.611516) on the test data, the drop from training performance suggests it may not generalize as well as the other models.
