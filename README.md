@@ -91,7 +91,7 @@ The goal was to develop the best model to predict whether a client will subscrib
 
 ### Next steps and recommendations
 
-#### The bank should consider the following numeric features which provide the greatest impact to the best model:
+#### The bank should consider the following numeric features which provide the greatest impact to the best model and target marketing campaign strategies based on these features:
 
 - age
 - campaign
