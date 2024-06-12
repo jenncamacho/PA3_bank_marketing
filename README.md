@@ -1,7 +1,4 @@
 # PA3_bank_marketing
-Using classification to predict if the bank client will subscribe a term deposit. 
-
-The data pertains to direct marketing campaigns (phone calls) conducted by a Portuguese banking institution.
 
 # Documents
 Notebook: https://github.com/jenncamacho/PA3_bank_marketing/blob/main/prompt_III_PREP.ipynb
@@ -18,9 +15,12 @@ By understanding the best features and attributes to generate the best models, t
 
 This dataset pertains to direct marketing campaigns conducted by a Portuguese banking institution, where the primary mode of outreach was through phone calls. The goal is to accurately predict whether a bank client will subscribe to a term deposit based on the provided data.
 
+Using classification to predict if the bank client will subscribe a term deposit. 
+
 #### Dataset Overview
 
 There are four distinct datasets available, data modeling is conducted on the following dataset:
+The data pertains to direct marketing campaigns (phone calls) conducted by a Portuguese banking institution.
 
 1. **bank-additional-full.csv**: Contains 41,188 examples with 20 input features, ordered chronologically from May 2008 to November 2010. 
 
